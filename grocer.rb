@@ -50,7 +50,7 @@ def checkout(cart, coupons)
   checkout_clearance = apply_clearance(checkout_coupon)
   
   checkout_clearance.each do |food, attribute|
-    total = attribute[:price] * attribute[:count]
+    total += attribute[:price] * attribute[:count]
   end 
 end
 
