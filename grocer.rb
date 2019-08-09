@@ -1,9 +1,28 @@
+require "pry"
 def consolidate_cart(cart)
-  # code here
-end
+  consolidated_hash = {}
+  cart.each do |item|
+    if consolidated_hash[item.keys[0]] 
+     consolidated_hash[item.keys[0]][:count] +=1 
+    else 
+      consolidated_hash[item.keys[0]] = {
+        price: item.values[0][:price],
+        clearance: item.values[0][:clearance], 
+        count: 1 
+      } 
+    end
+  end
+  consolidated_hash
+end 
+  
+  
 
 def apply_coupons(cart, coupons)
-  # code here
+  coupon_hash = {}
+  cart.each do |item|
+    if coupon_hash[item.keys[0]]==coupons[0][items.keys[0]]
+      
+  binding.pry 
 end
 
 def apply_clearance(cart)
@@ -13,3 +32,4 @@ end
 def checkout(cart, coupons)
   # code here
 end
+
