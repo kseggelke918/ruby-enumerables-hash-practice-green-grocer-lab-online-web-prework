@@ -18,10 +18,9 @@ end
   
 
 def apply_coupons(cart, coupons)
-  coupon_hash = {}
-  cart.each do |item|
-    if coupon_hash[item.keys[0]]==coupons[0][items.keys[0]]
-      
+  
+  
+  
   binding.pry 
 end
 
