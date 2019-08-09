@@ -31,10 +31,10 @@ def apply_coupons(cart, coupons)
           coupon_hash[:count]= cart[food][:count]/coupon_hash[:count]
           cart[food][:count] = coupon[:num] -cart[food][:count]
         end 
-        cart[food + " W/COUPON"] = coupon_hash
+        cart[food + " ITEM NAME W/COUPON"] = coupon_hash
     end 
   end
-    if cart.has_key?(food + "W/COUPON")
+    if cart.has_key?(food + "ITEM NAME W/COUPON")
       cart[:price]/coupons[:num]
     end 
   return cart
