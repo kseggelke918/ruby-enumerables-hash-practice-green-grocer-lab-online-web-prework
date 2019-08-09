@@ -18,10 +18,22 @@ end
   
 
 def apply_coupons(cart, coupons)
-  
-  
-  
-  binding.pry 
+  coupon_hash = {}
+  cart.each do |coupon|
+    food = coupon[:item]
+    coupon_hash = {
+      price: coupon[:cost],
+      clearance: "true",
+      count: coupon[:num]
+  }
+    if cart.has_key?(food)
+      coupon_hash[:clearance] = cart[food][:clearance]
+        if cart[food][:count] >= coupon_hash[:count]
+          coupon_hash[:count]=
+          binding.pry 
+       end 
+    end 
+  end
 end
 
 def apply_clearance(cart)
