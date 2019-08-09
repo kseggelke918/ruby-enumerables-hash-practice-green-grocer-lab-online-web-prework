@@ -28,7 +28,11 @@ def apply_coupons(cart, coupons)
           cart["#{food} W/COUPON"] = {:price => coupon[:cost]/coupon[:num], 
           :clearance => cart[food][:clearance], :count => coupon[:num]} 
         end 
-      cart[food][:count] = cart[food][:count] - coupon[:num]
+        if (cart[name][:count])%(cart["{#name} W/COUPON"][:count]) == 0
+          cart["#{name} W/COUPON"][:count] = cart[name][:count]
+        else 
+          cart[name][:count] = cart[name][:count] - coupon[:num]
+        end 
       end 
     end 
   end 
