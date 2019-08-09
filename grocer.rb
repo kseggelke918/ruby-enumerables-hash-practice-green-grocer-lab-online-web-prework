@@ -18,26 +18,21 @@ end
   
 
 def apply_coupons(cart, coupons)
-      coupons.each do |coupon|
-    food = coupon[:item]
-    coupon_hash = {
-      price: coupon[:cost],
-      clearance: "true",
-      count: coupon[:num]
-  }
-    if cart.has_key?(food)
-      coupon_hash[:clearance] = cart[food][:clearance]
-        if cart[food][:count] >= coupon_hash[:count]
-          coupon_hash[:count]= cart[food][:count]/coupon_hash[:count]
-          cart[food][:count] = coupon[:num] -cart[food][:count]
+  coupons.each do |coupon| 
+    coupon.each do |attribute, value| 
+      name = coupon[:item] 
+      if cart[name] && cart[name][:count] >= coupon[:num] 
+        if cart["#{name} W/COUPON"] 
+          cart["#{name} W/COUPON"][:count] += 1 
+        else 
+          cart["#{name} W/COUPON"] = {:price => coupon[:cost]/coupon[:num], 
+          :clearance => cart[name][:clearance], :count => coupon[:num]} 
         end 
-        cart[food + " ITEM NAME W/COUPON"] = coupon_hash
+      cart[name][:count] -= coupon[:num] 
+      end 
     end 
-  end
-    if cart.has_key?(food + "ITEM NAME W/COUPON")
-      cart[:price]/coupons[:num]
-    end 
-  return cart
+  end 
+  return cart 
 end
 
 def apply_clearance(cart)
