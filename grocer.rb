@@ -37,7 +37,8 @@ end
 def apply_clearance(cart)
   cart.each do |food|
     food.each do |food_hash|
-  binding.pry 
+      binding.pry
+    end 
   end 
 end
 
