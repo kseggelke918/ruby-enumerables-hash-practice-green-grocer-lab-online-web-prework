@@ -37,6 +37,8 @@ end
 def apply_clearance(cart)
   cart.each do |food|
     food.each do |food_hash|
+      if food_hash[:clearance] == "true"
+        food_hash[:price] = food_hash[:price]*.2 
       binding.pry 
     end 
   end 
