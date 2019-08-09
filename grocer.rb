@@ -52,5 +52,6 @@ def checkout(cart, coupons)
   checkout_clearance.each do |food, attribute|
     total += (attribute[:price] * attribute[:count])
   end 
+  return total 
 end
 
