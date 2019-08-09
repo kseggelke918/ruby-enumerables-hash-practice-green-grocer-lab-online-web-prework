@@ -37,7 +37,7 @@ end
 def apply_clearance(cart)
   cart.each do |food, attribute|
     if attribute[:clearance] == true 
-      attribute[:price] * 0.2 
+      atrribute[:price] = attribute[:price] * 0.2 
     end 
   end 
   return cart
