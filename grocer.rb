@@ -39,7 +39,7 @@ def apply_clearance(cart)
     food.each do |food_hash|
       if food_hash[:clearance] == "true"
         food_hash[:price] = food_hash[:price]*0.20 
-      binding.pry 
+      end 
     end 
   end 
 end
