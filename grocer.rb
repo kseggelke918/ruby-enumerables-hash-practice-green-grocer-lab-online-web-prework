@@ -19,7 +19,7 @@ end
 
 def apply_coupons(cart, coupons)
   coupon_hash = {}
-  cart.each do |coupon|
+  coupons.each do |coupon|
     food = coupon[:item]
     coupon_hash = {
       price: coupon[:cost],
@@ -29,11 +29,12 @@ def apply_coupons(cart, coupons)
     if cart.has_key?(food)
       coupon_hash[:clearance] = cart[food][:clearance]
         if cart[food][:count] >= coupon_hash[:count]
-          coupon_hash[:count]=
-          binding.pry 
-       end 
+          coupon_hash[:count]= cart[food][:count] - coupon_hash[:count]
+        end 
+        cart[food + " W/COUPON"] = coupon_hash
     end 
   end
+  return cart
 end
 
 def apply_clearance(cart)
