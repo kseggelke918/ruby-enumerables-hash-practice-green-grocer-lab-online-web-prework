@@ -49,6 +49,8 @@ def checkout(cart, coupons)
   checkout_coupon = apply_coupons(checkout_cart, coupons)
   checkout_clearance = apply_clearance(checkout_coupon)
   
-  checkout_clearance
+  checkout_clearance.each do |food, attribute|
+  binding.pry 
+  end 
 end
 
